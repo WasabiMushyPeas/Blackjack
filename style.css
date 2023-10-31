@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+:root {
+    --text: #000000;
+    --background: #e5fbed;
+    --primary: #1db459;
+    --secondary: #b4f3cd;
+    --accent: #1fbd5e;
+}
+
+/* Main page */
+
+h1 {
+    font-family: 'Space Mono', monospace;
+    color: var(--text);
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 40px;
+    color: var(--text);
+}
+
+h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 25px;
+    color: var(--text);
+}
+
+p {
+    font-family: 'Space Mono', monospace;
+    color: var(--text);
+}
+
+body {
+    background-color: var(--background);
+}
+
+.pageDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Title */
+.border {
+    background-color: var(--secondary);
+    margin: 2%;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+/* Sections */
+.sectionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    background-color: var(--secondary);
+    padding: 1%;
+    border-radius: 30px;
+    transition: 0.5s;
+    margin: 40px;
+}
+
+.contentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 3%;
+}
+
+/* Form */
+.para {
+    font-family: 'Space Mono', monospace;
+    color: var(--text);
+    user-select: none;
+    font-size: 20px;
+}
+
+button {
+    background-color: var(--primary);
+    color: var(--text);
+    border-radius: 20px;
+    font-family: 'Space Mono', monospace;
+    border: none;
+    margin: 1px;
+    font-size: 20px;
+    user-select: none;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: var(--accent);
+    color: var(--text);
+    scale: 1.1;
+}
+
+button:active {
+    background-color: var(--accent);
+    color: var(--text);
+    scale: 0.5;
+}
+
+.input {
+    height: 30px;
+    font-family: 'Space Mono', monospace;
+    font-size: 20px;
+}
+
+/* Game board */
+#gameBody {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--secondary);
+    border-radius: 30px;
+    transition: 0.5s;
+    margin: 5%;
+}
+
+.gameTable {
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 30px;
+    margin: 5%;
+    height: 80vh;
+    width: 80vw;
+}
+
+.oppentsSide {
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    margin-right: 5%;
+}
+
+.playerSide {
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    margin-left: 5%;
+}
