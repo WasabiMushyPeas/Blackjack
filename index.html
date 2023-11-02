@@ -7,6 +7,8 @@
     <title>Blackjack</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
+    <link rel="icon"
+        href="https://assets.ctfassets.net/sm166qdr1jca/2FyqNQVf20uKZmTUET6rsq/6672b524e82f27c8d15139ce233143ed/favicon.ico">
 </head>
 
 <body onload="start()">
@@ -18,14 +20,14 @@
         </h1>
         <div class="border">
             <p>
-                You Have <span id="money">500</span> Dollars <br>
-                Your Opponent Has <span id="opponentMoney">500</span> Dollars <br>
-                Your Opponent is Betting <span id="opponentBet">0</span> Dollars <br>
+                You Have <span class="money">500</span> Dollars <br>
+                Your Opponent Has <span class="opponentMoney">500</span> Dollars <br>
+                Your Opponent is Betting <span class="opponentBet">0</span> Dollars <br>
             </p>
             <!-- Make a ticker to increase or decrease your bet. -->
             <div class="ticker">
                 <button onclick="decreaseBet()">-</button>
-                <span class="para" id="bet">50</span>
+                <span id="para" class="bet">50</span>
                 <button onclick="increaseBet()">+</button>
                 <button onclick="startGame()">Submit</button>
             </div>
@@ -35,13 +37,47 @@
     <!-- Game -->
     <div id="gameBody">
         <div class="gameTable">
-            <div class="oppentsSide">
+
+            <div id="playerSide">
+                <div class="playerCard" id="playerDeck">
+                    <img src="./svg_playing_cards/backs/red2.svg">
+                </div>
+                <div id="playerSideTable">
+                </div>
             </div>
 
-            <div class="playerSide">
+
+            <div class="infoDeck">
+                <div onclick="stand()" class="standButton">
+                    <h2 style="text-align: center;">STAND</h2>
+                </div>
+                <div onclick="hit()" class="standButton">
+                    <h2 style="text-align: center;">HIT</h2>
+                </div>
+                <div class="infoCellRow">
+                    <div class="playerCount">
+                        <h2 id="playerCount">0</h2>
+                    </div>
+                    <div class="opponentCount">
+                        <h2 id="opponentCount">0</h2>
+                    </div>
+                </div>
+                <div class="infoCell">
+                    <h3 id="info">Opponent Bet: $<span class="opponentBet">0</span></h3>
+                </div>
+            </div>
+
+
+            <div id="opponentsSide">
+                <div class="opponentCard" id="opponentDeck">
+                    <img src="./svg_playing_cards/backs/blue2.svg">
+                </div>
+                <div id="opponentSideTable">
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

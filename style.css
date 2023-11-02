@@ -24,7 +24,7 @@ h2 {
 
 h3 {
     font-family: 'Space Mono', monospace;
-    font-size: 25px;
+    font-size: 15px;
     color: var(--text);
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 /* Form */
-.para {
+#para {
     font-family: 'Space Mono', monospace;
     color: var(--text);
     user-select: none;
@@ -135,11 +135,23 @@ button:active {
     width: 80vw;
 }
 
-.oppentsSide {
+#opponentsSide {
     background-color: var(--accent);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    margin-left: 5%;
+}
+
+#playerSide {
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     flex-direction: column;
     height: 100%;
     width: 100%;
@@ -147,14 +159,109 @@ button:active {
     margin-right: 5%;
 }
 
-.playerSide {
-    background-color: var(--accent);
+.standButton {
+    background-color: var(--secondary);
+    border-radius: 20px;
+    font-family: 'Space Mono', monospace;
+    align-items: center;
+    border: none;
+    margin: 5%;
+    padding: 10%;
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    user-select: none;
+    transition: 0.5s;
+}
+
+.standButton:hover {
+    background-color: var(--background);
+    scale: 1.1;
+}
+
+.standButton:active {
+    background-color: var(--background);
+    scale: 0.5;
+}
+
+.infoDeck {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.infoCell {
+    background-color: var(--secondary);
+    border-radius: 20px;
+    margin: 5%;
+    padding: 10%;
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    user-select: none;
+    transition: 0.5s;
+}
+
+.infoCellRow {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+
+}
+
+.opponentCount {
+    background-color: var(--secondary);
+    border-radius: 20px;
+    margin: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 40%;
+    padding-right: 40%;
     height: 100%;
     width: 100%;
-    border-radius: 30px;
-    margin-left: 5%;
+    font-size: 30px;
+    user-select: none;
+    transition: 0.5s;
+}
+
+.playerCount {
+    background-color: var(--secondary);
+    border-radius: 20px;
+    margin: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 40%;
+    padding-right: 40%;
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    user-select: none;
+    transition: 0.5s;
+}
+
+/* Cards */
+#opponentDeck {
+    margin: 2%;
+    scale: 80%;
+}
+
+#playerDeck {
+    margin: 2%;
+    scale: 80%;
+}
+
+#playerSideTable {
+    display: flex;
+    align-items: flex-end;
+    justify-content: start;
+    flex-direction: row;
+}
+
+#opponentSideTable {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    flex-direction: row;
 }
