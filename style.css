@@ -265,3 +265,27 @@ button:active {
     justify-content: start;
     flex-direction: row;
 }
+
+/* Win/Lose Popup */
+.endGame {
+    position: absolute;
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #00000063;
+    height: 100%;
+    width: 100%;
+}
+
+.endGameMenu {
+    background-color: var(--secondary);
+    border-radius: 20px;
+    padding: 10%;
+    height: 40%;
+    width: 40%;
+    font-size: 30px;
+    user-select: none;
+    transition: 0.5s;
+}

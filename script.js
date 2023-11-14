@@ -12,6 +12,7 @@ let opponentCount = 0;
 let playerAlive = true;
 let opponentAlive = true;
 let stood = false;
+let winStatus = "Error";
 
 function start() {
 
@@ -161,6 +162,8 @@ function updateStats() {
     let htmlOpponentBet = document.getElementsByClassName("opponentBet");
     document.getElementById("playerCount").innerHTML = playerCount;
     document.getElementById("opponentCount").innerHTML = opponentCount;
+    document.getElementById("winStatus").innerHTML = winStatus;
+
 
     for (let i = 0; i < htmlMoney.length; i++) {
         htmlMoney[i].innerHTML = money;
@@ -183,6 +186,9 @@ function startGame() {
     document.getElementById("gameBody").style.display = "flex";
 
     updateStats();
+
+    playerAlive = true;
+    opponentAlive = true;
 }
 
 function stand() {
@@ -201,6 +207,7 @@ function hit() {
     updateStats();
     hitOpponent();
     checkPlayerDeath();
+    checkOpponentDeath();
     checkWin();
 }
 
@@ -212,6 +219,7 @@ function hitOpponent() {
     creatHTMLCardOpponent(card);
     updateStats();
     checkOpponentDeath();
+    checkPlayerDeath();
 }
 
 function getRandomCard() {
@@ -271,27 +279,32 @@ function creatHTMLCardOpponent(card) {
 }
 
 function calculatePlayerCount(card) {
-    if (cardValues[card] == 1) {
-        if (playerCount + 11 > 21) {
-            playerCount += 1;
+    if (playerAlive == true) {
+        if (cardValues[card] == 1) {
+            if (playerCount + 11 > 21) {
+                playerCount += 1;
+            } else {
+                playerCount += 11;
+            }
         } else {
-            playerCount += 11;
+            playerCount += getCardValue(card);
         }
-    } else {
-        playerCount += getCardValue(card);
     }
 }
 
 function calculateOpponentCount(card) {
-    if (cardValues[card] == 1) {
-        if (opponentCount + 11 > 21) {
-            opponentCount += 1;
+    if (opponentAlive == true) {
+        if (cardValues[card] == 1) {
+            if (opponentCount + 11 > 21) {
+                opponentCount += 1;
+            } else {
+                opponentCount += 11;
+            }
         } else {
-            opponentCount += 11;
+            opponentCount += getCardValue(card);
         }
-    } else {
-        opponentCount += getCardValue(card);
     }
+
 }
 
 function checkPlayerDeath() {
@@ -321,25 +334,38 @@ function runPlayerTurns() {
 function checkWin() {
     if (playerAlive == false) {
         console.log("You lose");
+        winStatus = "You lose";
         money -= bet;
         opponentMoney += opponentBet;
+        winPopup();
     }
     if (opponentAlive == false) {
         console.log("You win");
+        winStatus = "You win";
         money += bet;
         opponentMoney -= opponentBet;
+        winPopup();
     }
-    if (opponentCount > playerCount) {
+    if (opponentCount > playerCount && stood == true) {
         console.log("You lose");
+        winStatus = "You lose";
         money -= bet;
         opponentMoney += opponentBet;
-    } else if (opponentCount < playerCount) {
+        winPopup();
+    } else if (opponentCount < playerCount && stood == true) {
         console.log("You win");
+        winStatus = "You win";
         money += bet;
         opponentMoney -= opponentBet;
-    } else if (opponentCount == playerCount) {
+        winPopup();
+    } else if (opponentCount == playerCount && stood == true) {
         console.log("Draw");
-    } else {
-        console.log("Error");
+        winStatus = "Draw";
+        winPopup();
     }
+}
+
+function winPopup() {
+    document.getElementsByClassName("endGame")[0].style.display = "flex";
+    updateStats();
 }
