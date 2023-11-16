@@ -5,7 +5,7 @@ let bet = 50;
 let opponentBet = 0;
 let money = 500;
 let opponentMoney = 500;
-let oppontCards = 0;
+let opponentCards = 0;
 let playerCards = 0;
 let playerCount = 0;
 let opponentCount = 0;
@@ -148,7 +148,7 @@ function increaseBet() {
 
 function opponentRandBet() {
     opponentBet = Math.floor(Math.random() * opponentMoney);
-    // loop through all opponetBet classes and update the text
+    // loop through all opponentBet classes and update the text
     let htmlOpponentBet = document.getElementsByClassName("opponentBet");
     for (let i = 0; i < htmlOpponentBet.length; i++) {
         htmlOpponentBet[i].innerHTML = opponentBet;
@@ -203,7 +203,7 @@ function hit() {
 
 
     calculatePlayerCount(card);
-    creatHTMLCardPlayer(card);
+    createHTMLCardPlayer(card);
     updateStats();
     hitOpponent();
     checkPlayerDeath();
@@ -216,7 +216,7 @@ function hitOpponent() {
     let cardValue = getCardValue(card);
 
     calculateOpponentCount(card);
-    creatHTMLCardOpponent(card);
+    createHTMLCardOpponent(card);
     updateStats();
     checkOpponentDeath();
     checkPlayerDeath();
@@ -231,7 +231,7 @@ function getCardValue(card) {
     return cardValues[card];
 }
 
-function creatHTMLCardPlayer(card) {
+function createHTMLCardPlayer(card) {
     let htmlCard = document.createElement("img");
     let htmlCardDiv = document.createElement("div");
 
@@ -254,7 +254,7 @@ function creatHTMLCardPlayer(card) {
     playerCards++;
 }
 
-function creatHTMLCardOpponent(card) {
+function createHTMLCardOpponent(card) {
     let htmlCard = document.createElement("img");
     let htmlCardDiv = document.createElement("div");
 
@@ -263,7 +263,7 @@ function creatHTMLCardOpponent(card) {
 
 
     // stack the cards
-    if (oppontCards == 0) {
+    if (opponentCards == 0) {
         htmlCardDiv.style.marginLeft = "5%";
     } else {
         htmlCardDiv.style.marginLeft = "-200px";
@@ -275,7 +275,7 @@ function creatHTMLCardOpponent(card) {
     htmlCardDiv.classList.add("playCardDiv");
     document.getElementById("opponentSideTable").appendChild(htmlCardDiv);
     htmlCardDiv.appendChild(htmlCard);
-    oppontCards++;
+    opponentCards++;
 }
 
 function calculatePlayerCount(card) {
