@@ -274,7 +274,6 @@ button:active {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #00000063;
     height: 100%;
     width: 100%;
 }
