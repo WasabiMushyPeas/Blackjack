@@ -45,12 +45,24 @@ body {
 
 /* Title */
 .border {
+    display: flex;
     background-color: var(--secondary);
     margin: 2%;
     border-radius: 20px;
     padding: 2%;
     align-items: center;
     justify-content: center;
+}
+
+.startingBet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.startingBetText {
+    text-align: center;
 }
 
 /* Sections */

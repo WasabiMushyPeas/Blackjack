@@ -195,6 +195,7 @@ function stand() {
     //runPlayerTurns();
     stood = true;
     checkWin();
+    hitOpponent();
 }
 
 function hit() {
@@ -205,7 +206,6 @@ function hit() {
     calculatePlayerCount(card);
     createHTMLCardPlayer(card);
     updateStats();
-    hitOpponent();
     checkPlayerDeath();
     checkOpponentDeath();
     checkWin();
