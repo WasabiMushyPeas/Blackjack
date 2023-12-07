@@ -180,15 +180,35 @@ function updateStats() {
 }
 
 function startGame() {
+
+    console.log("Game started");
     //Hide bettingMenu
     document.getElementById("bettingMenu").style.display = "none";
     //Show game
     document.getElementById("gameBody").style.display = "flex";
 
-    updateStats();
+    document.getElementsByClassName("endGame")[0].style.display = "none";
 
+    let htmlPlayerCards = document.getElementsByClassName("playCardDiv");
+    // Delete all cards
+    console.log(htmlPlayerCards);
+    for (let i = 0; i < htmlPlayerCards.length; i++) {
+        htmlPlayerCards[i].remove();
+    }
+
+    opponentRandBet();
+
+
+    opponentCards = 0;
+    playerCards = 0;
+    playerCount = 0;
+    opponentCount = 0;
     playerAlive = true;
     opponentAlive = true;
+    stood = false;
+    winStatus = "Error";
+
+    updateStats();
 }
 
 function stand() {
