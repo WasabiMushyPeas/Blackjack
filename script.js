@@ -190,9 +190,10 @@ function startGame() {
     document.getElementsByClassName("endGame")[0].style.display = "none";
 
     let htmlPlayerCards = document.getElementsByClassName("playCardDiv");
+    let length = htmlPlayerCards.length;
     // Delete all cards
     console.log(htmlPlayerCards);
-    for (let i = 0; i < htmlPlayerCards.length; i++) {
+    for (let i = 0; i < length; i++) {
         htmlPlayerCards[i].remove();
     }
 
