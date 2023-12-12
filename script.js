@@ -394,3 +394,5 @@ function winPopup() {
     document.getElementsByClassName("endGame")[0].style.display = "flex";
     updateStats();
 }
+
+
